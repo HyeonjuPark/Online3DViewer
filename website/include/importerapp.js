@@ -52,15 +52,15 @@ ImporterApp.prototype.Init = function ()
 	var top = $('#top');
 	this.importerButtons = new ImporterButtons (top);
 	this.importerButtons.AddLogo ('Online 3D Viewer <span class="version">v 0.6.6</span>');
-	this.importerButtons.AddButton ('images/openfile.png', 'Open File', function () { myThis.OpenFile (); });
-	this.importerButtons.AddButton ('images/fitinwindow.png', 'Fit In Window', function () { myThis.FitInWindow (); });
-	this.importerButtons.AddToggleButton ('images/fixup.png', 'images/fixupgray.png', 'Enable/Disable Fixed Up Vector', function () { myThis.SetFixUp (); });
-	this.importerButtons.AddButton ('images/top.png', 'Set Up Vector (Z)', function () { myThis.SetNamedView ('z'); });
-	this.importerButtons.AddButton ('images/bottom.png', 'Set Up Vector (-Z)', function () { myThis.SetNamedView ('-z'); });
-	this.importerButtons.AddButton ('images/front.png', 'Set Up Vector (Y)', function () { myThis.SetNamedView ('y'); });
-	this.importerButtons.AddButton ('images/back.png', 'Set Up Vector (-Y)', function () { myThis.SetNamedView ('-y'); });
-	this.importerButtons.AddButton ('images/left.png', 'Set Up Vector (X)', function () { myThis.SetNamedView ('x'); });
-	this.importerButtons.AddButton ('images/right.png', 'Set Up Vector (-X)', function () { myThis.SetNamedView ('-x'); });
+	this.importerButtons.AddButton ('website/images/openfile.png', 'Open File', function () { myThis.OpenFile (); });
+    this.importerButtons.AddButton('website/images/fitinwindow.png', 'Fit In Window', function () { myThis.FitInWindow (); });
+    this.importerButtons.AddToggleButton('website/images/fixup.png', 'images/fixupgray.png', 'Enable/Disable Fixed Up Vector', function () { myThis.SetFixUp (); });
+    this.importerButtons.AddButton('website/images/top.png', 'Set Up Vector (Z)', function () { myThis.SetNamedView ('z'); });
+    this.importerButtons.AddButton('website/images/bottom.png', 'Set Up Vector (-Z)', function () { myThis.SetNamedView ('-z'); });
+    this.importerButtons.AddButton('website/images/front.png', 'Set Up Vector (Y)', function () { myThis.SetNamedView ('y'); });
+    this.importerButtons.AddButton('website/images/back.png', 'Set Up Vector (-Y)', function () { myThis.SetNamedView ('-y'); });
+    this.importerButtons.AddButton('website/images/left.png', 'Set Up Vector (X)', function () { myThis.SetNamedView ('x'); });
+    this.importerButtons.AddButton('website/images/right.png', 'Set Up Vector (-X)', function () { myThis.SetNamedView ('-x'); });
 	
 	this.extensionButtons = new ExtensionButtons (top);
 	this.introControl = new FloatingControl ();
@@ -141,7 +141,7 @@ ImporterApp.prototype.GetWelcomeText = function ()
 		'<div class="welcometext">Here you can view your local 3D models online. You have three ways to open a file. Use the open button above to select files, simply drag and drop files to this browser window, or define the url of the files as location hash.</div>',
 		'<div class="welcometextformats">Supported formats: 3ds, obj, stl, off.</div>',
 		'<div class="welcometext">Powered by <a target="_blank" href="https://github.com/mrdoob/three.js/">Three.js</a> and <a target="_blank" href="https://github.com/kovacsv/JSModeler">JSModeler</a>.</div>',
-		'<div class="welcometext"><a target="_blank" href="https://github.com/kovacsv/Online3DViewer"><img src="images/githublogo.png"/></a></div>',
+		'<div class="welcometext"><a target="_blank" href="https://github.com/kovacsv/Online3DViewer"><img src="website/images/githublogo.png"/></a></div>',
 	].join ('');
 	return welcomeText;
 };
@@ -222,11 +222,11 @@ ImporterApp.prototype.GenerateMenu = function ()
 				onOpen : function (contentDiv, material) {
 					contentDiv.empty ();
 					var materialButtons = $('<div>').addClass ('submenubuttons').appendTo (contentDiv);
-					var highlightButton = $('<img>').addClass ('submenubutton').attr ('src', 'images/highlightmesh.png').attr ('title', 'Highlight Meshes By Material').appendTo (materialButtons);
+                    var highlightButton = $('<img>').addClass('submenubutton').attr('src', 'website/images/highlightmesh.png').attr ('title', 'Highlight Meshes By Material').appendTo (materialButtons);
 					highlightButton.click (function () {
 						importerApp.HighlightMeshesByMaterial (materialIndex);
 					});
-					var fitInWindowButton = $('<img>').addClass ('submenubutton').attr ('src', 'images/fitinwindowsmall.png').attr ('title', 'Fit Meshes In Window By Material').appendTo (materialButtons);
+                    var fitInWindowButton = $('<img>').addClass('submenubutton').attr('src', 'website/images/fitinwindowsmall.png').attr ('title', 'Fit Meshes In Window By Material').appendTo (materialButtons);
 					fitInWindowButton.click (function () {
 						importerApp.FitMeshesByMaterialInWindow (materialIndex);
 					});
@@ -260,15 +260,15 @@ ImporterApp.prototype.GenerateMenu = function ()
 			}
 			
 			var meshButtons = $('<div>').addClass ('submenubuttons').appendTo (contentDiv);
-			var fitInWindowButton = $('<img>').addClass ('submenubutton').attr ('src', 'images/fitinwindowsmall.png').attr ('title', 'Fit Mesh In Window').appendTo (meshButtons);
+            var fitInWindowButton = $('<img>').addClass('submenubutton').attr('src', 'website/images/fitinwindowsmall.png').attr ('title', 'Fit Mesh In Window').appendTo (meshButtons);
 			fitInWindowButton.click (function () {
 				importerApp.FitMeshInWindow (meshIndex);
 			});
-			var highlightButton = $('<img>').addClass ('submenubutton').attr ('src', 'images/highlightmesh.png').attr ('title', 'Highlight Mesh').appendTo (meshButtons);
+            var highlightButton = $('<img>').addClass('submenubutton').attr('src', 'website/images/highlightmesh.png').attr ('title', 'Highlight Mesh').appendTo (meshButtons);
 			highlightButton.click (function () {
 				importerApp.HighlightMesh (meshIndex);
 			});
-			var copyNameToClipboardButton = $('<img>').addClass ('submenubutton').attr ('src', 'images/copytoclipboard.png').attr ('title', 'Copy Mesh Name To Clipboard').appendTo (meshButtons);
+            var copyNameToClipboardButton = $('<img>').addClass('submenubutton').attr('src', 'website/images/copytoclipboard.png').attr ('title', 'Copy Mesh Name To Clipboard').appendTo (meshButtons);
 			copyNameToClipboardButton.click (function () {
 				CopyToClipboard (meshName);
 			});
@@ -318,7 +318,7 @@ ImporterApp.prototype.GenerateMenu = function ()
 					id : 'showhidemesh-' + meshIndex,
 					title : 'Show/Hide Mesh',
 					onCreate : function (image) {
-						image.attr ('src', 'images/visible.png');
+                        image.attr('src', 'website/images/visible.png');
 						visibleImage = image;
 					},
 					onClick : function (image, meshIndex) {
@@ -537,7 +537,7 @@ ImporterApp.prototype.ShowHideMeshInternal = function (meshIndex, isVisible)
 {
 	var meshMenuItem = this.meshMenuItems[meshIndex];
 	meshMenuItem.isVisible = isVisible;
-	meshMenuItem.visibleImage.attr ('src', meshMenuItem.isVisible ? 'images/visible.png' : 'images/hidden.png');
+    meshMenuItem.visibleImage.attr('src', meshMenuItem.isVisible ? 'website/images/visible.png' : 'website/images/hidden.png');
 	this.viewer.ShowMesh (meshIndex, meshMenuItem.isVisible);
 };
 

@@ -87,7 +87,7 @@ ImporterMenuItem.prototype.AddOpenCloseButton = function ()
 	this.isOpen = false;
 	this.contentDiv = $('<div>').addClass ('menuitemcontent').hide ().appendTo (this.parentDiv);
 	this.openCloseImage = $('<img>').addClass ('menubutton').attr ('title', this.parameters.openCloseButton.title).appendTo (this.menuItemDiv);
-	this.openCloseImage.attr ('src', 'images/closed.png');
+    this.openCloseImage.attr('src', 'website/images/closed.png');
 	this.menuItemDiv.click (function () {
 		myThis.SetOpen (!myThis.isOpen);
 	});
@@ -122,13 +122,13 @@ ImporterMenuItem.prototype.SetOpen = function (isOpen)
 			this.parameters.openCloseButton.onOpen (this.contentDiv, this.parameters.openCloseButton.userData);
 		}
 		this.contentDiv.show ();
-		this.openCloseImage.attr ('src', 'images/opened.png');
+        this.openCloseImage.attr('src', 'website/images/opened.png');
 	} else {
 		if (IsSet (this.parameters.openCloseButton.onClose)) {
 			this.parameters.openCloseButton.onClose (this.contentDiv, this.parameters.openCloseButton.userData);
 		}
 		this.contentDiv.hide ();
-		this.openCloseImage.attr ('src', 'images/closed.png');
+        this.openCloseImage.attr('src', 'website/images/closed.png');
 	}
 };
 
