@@ -128,7 +128,7 @@ ImporterViewer.prototype.HighlightMesh = function (index, highlight)
                     const floorTexture = new THREE.ImageUtils.loadTexture(url);
                     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
                     floorTexture.repeat.set(4, 4);
-                    current.material.map = texture
+                    current.material.map = floorTexture;
                     current.material.needsUpdate = true
                     // let loader = new THREE.TextureLoader();
                     // loader.load(url, (texture) => {
