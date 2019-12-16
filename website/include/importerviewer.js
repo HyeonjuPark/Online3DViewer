@@ -119,7 +119,24 @@ ImporterViewer.prototype.HighlightMesh = function (index, highlight)
 		if (current instanceof THREE.Mesh) {
 			if (current.originalJsonMeshIndex == index) {
 				if (highlight) {
-					current.material.emissive.setHex (0x555555);
+                    current.material.emissive.setHex (0x555555);
+                    console.log(current.material);
+                    const url = './images/texture_sample.jpg';
+                    // const url = 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwihtMnBrrnmAhXGFIgKHd9wAoYQjRx6BAgBEAQ&url=https%3A%2F%2Fdesignbundles.net%2Fhttpslinktreegulaydayi%2F51360-wood-texture-background&psig=AOvVaw30zHFsvSXras12yVxDPpzi&ust=1576558040351370';
+                    // THREE.TextureLoader.prototype.crossOrigin = '';
+                    let loader = new THREE.TextureLoader()
+                    loader.setCrossOrigin('anonymous');
+                    loader.load(url, (texture) => {
+                        texture.minFilter = THREE.LinearFilter
+                        texture.anisotropy = 8
+                        current.material.map = texture
+                        current.material.needsUpdate = true
+                        current.material.needsUpdate = true
+                        // maybe need this too..
+                        current.material.map.needsUpdate = true;
+                    })
+                    // current.material.color = new THREE.Color("rgb(255, 0, 0)");
+                    // console.log(current.material);   
 				} else {
 					current.material.emissive.setHex (0);
 				}
