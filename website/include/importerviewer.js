@@ -130,6 +130,9 @@ ImporterViewer.prototype.HighlightMesh = function (index, highlight)
                     loader.load(url, (texture) => {
                         // texture.minFilter = THREE.LinearFilter
                         // texture.anisotropy = 8
+                        texture.wrapS = THREE.RepeatWrapping;
+                        texture.wrapT = THREE.RepeatWrapping;
+                        texture.repeat.set(4, 4);
                         current.material.map = texture
                         current.material.needsUpdate = true
                         current.material.needsUpdate = true
