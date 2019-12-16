@@ -128,8 +128,8 @@ ImporterViewer.prototype.HighlightMesh = function (index, highlight)
                     let loader = new THREE.TextureLoader()
                     loader.setCrossOrigin('anonymous');
                     loader.load(url, (texture) => {
-                        texture.minFilter = THREE.LinearFilter
-                        texture.anisotropy = 8
+                        // texture.minFilter = THREE.LinearFilter
+                        // texture.anisotropy = 8
                         current.material.map = texture
                         current.material.needsUpdate = true
                         current.material.needsUpdate = true
